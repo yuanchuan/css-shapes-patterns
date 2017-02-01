@@ -52,18 +52,18 @@
       _.backgroundColor = color();
       _.borderRadius = '50%';
       _.width = _.height = rangeOf(25, 125, 25) +  '%';
-      _.opacity = rangeOf(.2, .9, .3);
+      _.opacity = rangeOf(.2, .9, .2);
       _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
     },
     tiles(_) {
       _.backgroundColor = color();
       _.width = _.height = rangeOf(25, 125, 25) + '%';
-      _.opacity = rangeOf(.2, .9, .3);
+      _.opacity = rangeOf(.2, .9, .2);
       _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
     },
     pizza(_) {
       _.backgroundColor = color();
-      _.opacity = rangeOf(.2, .9, .3);
+      _.opacity = rangeOf(.2, .9, .2);
       _.clipPath = _.webkitClipPath = `polygon(
         ${rangeOf(0, 100, 20) + '%'} ${rangeOf(0, 100, 20) + '%'},
         ${rangeOf(0, 100, 20) + '%'} ${rangeOf(0, 100, 20) + '%'},
@@ -78,7 +78,7 @@
       _.borderRadius = rand('100% 0', '0 100%');
       _.width = _.height = rangeOf(25, 125, 25) + '%';
       _.opacity = rangeOf(.2, .9, .3);
-      _.transform = `scale3d(${ rangeOf(.6, 1.8, .3) })`;
+      _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
     },
     ribbons(_) {
       _.border = `${ rangeOf(2, 5) + 'px' } solid ${ color() }`;
@@ -129,6 +129,7 @@
               content: '';
               display: block;
               clear: both;
+              visibility: hidden;
             }
             .cell {
               width: 20%;
@@ -138,8 +139,7 @@
               position: relative;
             }
             .shape {
-              display: block;
-              position: relative;
+              position: absolute;
               width: 100%;
               height: 100%;
               transition: all .3s ease;

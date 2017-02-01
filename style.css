@@ -7,7 +7,8 @@ html, body {
   text-align: center;
 }
 body {
-    -webkit-font-smoothing: antialiased;
+   -webkit-font-smoothing: antialiased;
+   overflow-x:hidden;
    font-family:  /* heiti */
     -apple-system,
     "Helvetica Neue", Helvetica,
@@ -25,7 +26,6 @@ h1 {
   margin: 0;
   padding: 0;
   line-height: 1.2;
-  background: #fafafa;
   transform: scale(.9);
   display: flex;
   align-items: center;
@@ -34,6 +34,7 @@ h1 {
   font-size: calc(50vw / 20);
   font-weight: 400;
   font-style: italic;
+  text-transform: uppercase;
   overflow: hidden;
   padding: 0;
 }
@@ -60,8 +61,11 @@ h1, pattern-graph {
   min-width: 100px;
   min-height: 100px;
   float: left;
-  overflow: hidden;
   margin: .5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fafafa;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
 }
 pattern-graph {
   transition: all .2s ease;
