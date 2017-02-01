@@ -124,6 +124,8 @@
             :host {
               display: inline-block;
               position: relative;
+              -webkit-user-select: none;
+              user-select: none;
             }
             :host(:after) {
               content: '';
