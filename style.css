@@ -104,7 +104,10 @@ footer p {
   margin: 2em 0 1em;
 }
 footer a {
-  color: #e5d0e4;
+  color: #ffd8f2;
+}
+footer a:hover {
+  color: #ffb7e7;
 }
 
 @media screen and (min-width: 700px) {
