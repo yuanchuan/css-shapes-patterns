@@ -152,8 +152,12 @@
             .repeat(this.cellsCount)
           }
         `;
+        let timer;
         this.addEventListener('click', () => this._buildPattern());
-        this.addEventListener('touchstart', () => this._buildPattern());
+        this.addEventListener('touchstart', () => {
+          timer = setTimeout(() => this._buildPattern(), 100);
+        });
+        this.addEventListener('touchmove', () => clearTimeout(timer));
       }
       connectedCallback() {
         this._eachShape(_ => {
