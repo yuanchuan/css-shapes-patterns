@@ -132,11 +132,11 @@
               visibility: hidden;
             }
             .cell {
+              position: relative;
               width: 20%;
               height: 20%;
               background: #fafafa;
               float: left;
-              position: relative;
             }
             .shape {
               position: absolute;

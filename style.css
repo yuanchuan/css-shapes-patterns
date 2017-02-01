@@ -1,5 +1,6 @@
 html, body, h1 {
   margin: 0;
+  padding: 0;
 }
 html, body {
   width: 100%;
@@ -24,9 +25,6 @@ body {
     sans-serif;
 }
 h1 {
-  margin: 0;
-  padding: 0;
-  line-height: 1.2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,8 +33,8 @@ h1 {
   font-weight: 400;
   font-style: italic;
   text-transform: uppercase;
+  line-height: 1.2;
   overflow: hidden;
-  padding: 0;
 }
 h1 span {
   -webkit-background-clip: text;
@@ -53,6 +51,7 @@ h1 span {
   content: '';
   display: block;
   clear: both;
+  visibility: hidden;
 }
 h1, pattern-graph {
   width: 18vw;
@@ -65,7 +64,6 @@ h1, pattern-graph {
   overflow: hidden;
   background: #fafafa;
   -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%);
-  mask-image: radial-gradient(circle, #fff 100%, #000 100%);
 }
 
 pattern-graph:hover {
