@@ -93,9 +93,6 @@ footer p {
   margin: 0;
   line-height: 1.6;
 }
-.copyright {
-  color: rgba(255, 255, 255, .8);
-}
 .copyright:before {
   content: '';
   display: block;
