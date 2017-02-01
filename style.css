@@ -26,7 +26,6 @@ h1 {
   margin: 0;
   padding: 0;
   line-height: 1.2;
-  transform: scale(.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,24 +54,20 @@ h1 span {
   clear: both;
 }
 h1, pattern-graph {
-  transform: scale(.95);
   width: 18vw;
   height: 18vw;
   min-width: 100px;
   min-height: 100px;
   float: left;
-  margin: .5rem;
+  margin: .8rem;
   border-radius: 50%;
   overflow: hidden;
   background: #fafafa;
-  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%);
+  mask-image: radial-gradient(circle, #fff 100%, #000 100%);
 }
-pattern-graph {
-  transition: all .2s ease;
-  will-change: transform;
-}
+
 pattern-graph:hover {
-  transform: scale(1);
   cursor: pointer;
 }
 
@@ -84,11 +79,12 @@ footer {
   font-weight: 400;
 }
 footer h2 {
+  margin-top: 0;
   font-size: 2em;
   font-weight: 400;
 }
 footer article {
-  width: calc((18vw + .5em) * 4);
+  width: calc(72vw + 4.8rem);
   margin: 0 auto;
 }
 footer p {
@@ -125,7 +121,7 @@ footer a:hover {
     height: 20vw;
   }
   footer article {
-    width: calc((20vw + .5rem) * 4);
+    width: calc(80vw + 4.8rem);
   }
 }
 @media screen and (max-width: 700px) {
@@ -137,9 +133,9 @@ footer a:hover {
     height: 40vw;
   }
   h1 {
-    font-size: calc(50vw / 10);
+    font-size: calc(5vw);
   }
   footer article {
-    width: calc((40vw + .5rem) * 2);
+    width: calc(80vw + 1.6rem);
   }
 }
