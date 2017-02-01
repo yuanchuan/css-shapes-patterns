@@ -1,0 +1,136 @@
+html, body, h1 {
+  margin: 0;
+}
+html, body {
+  width: 100%;
+  background: #eee;
+  text-align: center;
+}
+body {
+    -webkit-font-smoothing: antialiased;
+   font-family:  /* heiti */
+    -apple-system,
+    "Helvetica Neue", Helvetica,
+    "Nimbus Sans L", Arial,
+    "Liberation Sans",
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Source Han Sans CN", "Source Han Sans SC",
+    "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei",
+    "ST Heiti", SimHei,
+    "WenQuanYi Zen Hei Sharp",
+    sans-serif;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  background: #fafafa;
+  transform: scale(.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: calc(50vw / 20);
+  font-weight: 400;
+  font-style: italic;
+  overflow: hidden;
+  padding: 0;
+}
+h1 span {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to bottom right, rgb(199, 48, 149), rgb(39, 40, 132));
+}
+#container{
+  display: inline-block;
+  margin: 5em auto;
+}
+#container:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+h1, pattern-graph {
+  transform: scale(.95);
+  width: 18vw;
+  height: 18vw;
+  min-width: 100px;
+  min-height: 100px;
+  float: left;
+  overflow: hidden;
+  margin: .5rem;
+}
+pattern-graph {
+  transition: all .2s ease;
+  will-change: transform;
+}
+pattern-graph:hover {
+  transform: scale(1);
+  cursor: pointer;
+}
+
+footer {
+  background: #4c207f;
+  padding: 5em 0;
+  color: #fff;
+  text-align: left;
+  font-weight: 400;
+}
+footer h2 {
+  font-size: 2em;
+  font-weight: 400;
+}
+footer article {
+  width: calc((18vw + .5em) * 4);
+  margin: 0 auto;
+}
+footer p {
+  font-size: 1.2em;
+  margin: 0;
+  line-height: 1.6;
+}
+.copyright {
+  color: rgba(255, 255, 255, .8);
+}
+.copyright:before {
+  content: '';
+  display: block;
+  width: 5em;
+  height: 1px;
+  background: rgba(255, 255, 255, .2);
+  margin: 2em 0 1em;
+}
+footer a {
+  color: #e5d0e4;
+}
+
+@media screen and (min-width: 700px) {
+  pattern-graph:nth-child(4n + 1) {
+    clear: left;
+  }
+}
+@media screen and (max-width: 1000px) {
+  h1, pattern-graph {
+    width: 20vw;
+    height: 20vw;
+  }
+  footer article {
+    width: calc((20vw + .5rem) * 4);
+  }
+}
+@media screen and (max-width: 700px) {
+  pattern-graph:nth-child(2n + 1) {
+    clear: left;
+  }
+  h1, pattern-graph {
+    width: 40vw;
+    height: 40vw;
+  }
+  h1 {
+    font-size: calc(50vw / 10);
+  }
+  footer article {
+    width: calc((40vw + .5rem) * 2);
+  }
+}
