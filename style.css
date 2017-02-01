@@ -40,7 +40,9 @@ h1 {
 h1 span {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(to bottom right, rgb(199, 48, 149), rgb(39, 40, 132));
+  background-image: linear-gradient(to bottom right, #c73095, #272884);
+  border: 1px solid #fafafa;
+  outline: 1px solid #fafafa;
 }
 #container{
   display: inline-block;
