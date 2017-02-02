@@ -24,6 +24,32 @@ body {
     "WenQuanYi Zen Hei Sharp",
     sans-serif;
 }
+
+.oldie #container {
+  display: none;
+}
+.oldie .fallback {
+  display: block;
+}
+.fallback {
+  display: none;
+}
+.fallback p {
+  margin: 0;
+  font-size: 1.2em;
+  background: rgba(255, 245, 180, 0.79);
+  color: #ff0606;
+  padding: 2em;
+}
+.fallback .screenshot {
+  padding: 5em 1em;
+  max-width: 1036px;
+  margin: 0 auto;
+}
+.fallback img {
+  width: 100%;
+}
+
 h1 {
   display: flex;
   align-items: center;

@@ -1,7 +1,7 @@
 (function() {
 
-  function rand(...args) {
-    const values = Array.isArray(args[0]) ? args[0] : args;
+  function rand() {
+    const values = Array.isArray(arguments[0]) ? arguments[0] : arguments;
     return values[Math.floor(Math.random() * values.length)];
   }
 
@@ -187,6 +187,13 @@
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/custom-elements/1.0.0-alpha.3/custom-elements.min.js';
     document.body.appendChild(script);
     window.onload = register;
+    window.onerror = function() {
+      document.body.className += 'oldie';
+      let shot = document.querySelector('.fallback img');
+      if (shot) {
+        shot.src = shot.getAttribute('data-src');
+      }
+    }
   }
 
 }());
