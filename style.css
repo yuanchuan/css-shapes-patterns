@@ -106,11 +106,18 @@ footer a:hover {
   color: #ffb7e7;
 }
 
+@media screen and (min-width: 1200px) {
+  footer article {
+    font-size: 110%;
+  }
+}
+
 @media screen and (min-width: 700px) {
   pattern-graph:nth-child(4n + 1) {
     clear: left;
   }
 }
+
 @media screen and (max-width: 1000px) {
   h1, pattern-graph {
     width: 20vw;
@@ -120,18 +127,40 @@ footer a:hover {
     width: calc(80vw + 4.8rem);
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
+  pattern-graph:nth-child(4n + 1) {
+    clear: none;
+  }
+  pattern-graph:nth-child(3n + 1) {
+    clear: left;
+  }
+  h1, pattern-graph {
+    width: 24vw;
+    height: 24vw;
+  }
+  h1 {
+    font-size: 3vw;
+  }
+  footer article {
+    width: calc(72vw + .8rem * 4);
+  }
+}
+@media screen and (max-width: 600px) {
+  pattern-graph:nth-child(3n + 1),
+  pattern-graph:nth-child(4n + 1) {
+    clear: none;
+  }
   pattern-graph:nth-child(2n + 1) {
     clear: left;
   }
   h1, pattern-graph {
-    width: 40vw;
-    height: 40vw;
+    width: 38vw;
+    height: 38vw;
   }
   h1 {
-    font-size: calc(5vw);
+    font-size: calc(4.5vw);
   }
   footer article {
-    width: calc(80vw + 1.6rem);
+    width: calc(76vw + 1.6rem);
   }
 }
