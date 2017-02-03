@@ -1,0 +1,201 @@
+html, body, h1 {
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  width: 100%;
+  background: #eee;
+  text-align: center;
+}
+body {
+   -webkit-font-smoothing: antialiased;
+   -webkit-text-size-adjust: 100%;
+   overflow-x:hidden;
+   font-family:  /* heiti */
+    -apple-system,
+    "Helvetica Neue", Helvetica,
+    "Nimbus Sans L", Arial,
+    "Liberation Sans",
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Source Han Sans CN", "Source Han Sans SC",
+    "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei",
+    "ST Heiti", SimHei,
+    "WenQuanYi Zen Hei Sharp",
+    sans-serif;
+}
+
+.oldie #container {
+  display: none;
+}
+.oldie .fallback {
+  display: block;
+}
+.fallback {
+  display: none;
+}
+.fallback p {
+  margin: 0;
+  font-size: 1.2em;
+  background: rgba(255, 245, 180, 0.79);
+  color: #ff0606;
+  padding: 2em;
+}
+.fallback .screenshot {
+  padding: 5em 1em;
+  max-width: 1036px;
+  margin: 0 auto;
+}
+.fallback img {
+  width: 100%;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: calc(50vw / 20);
+  font-weight: 400;
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 1.2;
+  overflow: hidden;
+}
+h1 span {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to bottom right, #c73095, #272884);
+  border: 1px solid #fafafa;
+  outline: 1px solid #fafafa;
+}
+#container{
+  display: inline-block;
+  margin: 5em auto;
+}
+#container:after {
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+h1, pattern-graph {
+  width: 18vw;
+  height: 18vw;
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 240px;
+  max-height: 240px;
+  float: left;
+  margin: .8rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fafafa;
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%);
+}
+
+pattern-graph:hover {
+  cursor: pointer;
+}
+
+footer {
+  background: #4c207f;
+  padding: 5em 0;
+  color: #d8c4f1;
+  text-align: left;
+  font-weight: 400;
+}
+footer h2 {
+  margin-top: 0;
+  font-size: 2em;
+  font-weight: 400;
+}
+footer article {
+  width: calc(72vw + 4.8rem);
+  max-width: calc(240px * 4 + 4.8rem);
+  margin: 0 auto;
+}
+footer p {
+  font-size: 1.2em;
+  margin: 0;
+  line-height: 1.6;
+}
+.copyright:before {
+  content: '';
+  display: block;
+  width: 5em;
+  height: 1px;
+  background: rgba(255, 255, 255, .2);
+  margin: 2em 0 1em;
+}
+footer a {
+  color: #ffd8f2;
+}
+footer a:hover {
+  color: #ffb7e7;
+}
+
+@media screen and (min-width: 1400px) {
+  h1 {
+    font-size: 2em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  footer article {
+    font-size: 110%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  pattern-graph:nth-child(4n + 1) {
+    clear: left;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  h1, pattern-graph {
+    width: 20vw;
+    height: 20vw;
+  }
+  footer article {
+    width: calc(80vw + 4.8rem);
+  }
+}
+@media screen and (max-width: 900px) {
+  pattern-graph:nth-child(4n + 1) {
+    clear: none;
+  }
+  pattern-graph:nth-child(3n + 1) {
+    clear: left;
+  }
+  h1, pattern-graph {
+    width: 24vw;
+    height: 24vw;
+  }
+  h1 {
+    font-size: 3vw;
+  }
+  footer article {
+    width: calc(72vw + .8rem * 4);
+  }
+}
+@media screen and (max-width: 600px) {
+  pattern-graph:nth-child(3n + 1),
+  pattern-graph:nth-child(4n + 1) {
+    clear: none;
+  }
+  pattern-graph:nth-child(2n + 1) {
+    clear: left;
+  }
+  h1, pattern-graph {
+    width: 38vw;
+    height: 38vw;
+  }
+  h1 {
+    font-size: calc(4.5vw);
+  }
+  footer article {
+    width: calc(76vw + 1.6rem);
+  }
+}
