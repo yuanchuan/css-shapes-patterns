@@ -1,6 +1,6 @@
 # CSS Shapes Patterns
 
-![css shapes patterns](screenshot.png)
+![css shapes patterns](src/images/screenshot.png)
 
 ## Visit
 
