@@ -120,7 +120,7 @@ footer p {
   margin: 0;
   line-height: 1.6;
 }
-.copyright:before {
+.info:before {
   content: '';
   display: block;
   width: 5em;
@@ -130,9 +130,13 @@ footer p {
 }
 footer a {
   color: #ffd8f2;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
 }
 footer a:hover {
-  color: #ffb7e7;
+  background: #ffd8f2;
+  color: #4c207f;
+  border-bottom: transparent;
 }
 
 @media screen and (min-width: 1400px) {
