@@ -115,7 +115,7 @@
 
   if (!window.customElements) {
     let script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/custom-elements/1.0.0-alpha.3/custom-elements.min.js';
+    script.src = 'polyfills/custom-elements.min.js';
     document.body.appendChild(script);
   }
 
@@ -182,8 +182,7 @@
           fn(shape.style, shape, index)
         ));
       }
-      _buildPattern(builder) {
-        builder = builder || Patterns[this.type];
+      _buildPattern(builder = Patterns[this.type]) {
         if (builder) {
           this._eachShape(builder);
         }
