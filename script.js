@@ -1,8 +1,8 @@
 (function() {
 
   function rand() {
-    const values = Array.isArray(arguments[0]) ? arguments[0] : arguments;
-    return values[Math.floor(Math.random() * values.length)];
+    const args = Array.isArray(arguments[0]) ? arguments[0] : arguments;
+    return args[Math.floor(Math.random() * args.length)];
   }
 
   function color() {
@@ -113,7 +113,13 @@
     }
   };
 
-  function register() {
+  if (!window.customElements) {
+    let script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/custom-elements/1.0.0-alpha.3/custom-elements.min.js';
+    document.body.appendChild(script);
+  }
+
+  window.addEventListener('load', () => {
     customElements.define('pattern-graph', class extends HTMLElement {
       constructor() {
         super();
@@ -154,14 +160,17 @@
             .repeat(this.cellsCount)
           }
         `;
-        let timer;
-        this.addEventListener('click', () => this._buildPattern());
-        this.addEventListener('touchstart', () => {
-          timer = setTimeout(() => this._buildPattern(), 100);
-        });
-        this.addEventListener('touchmove', () => clearTimeout(timer));
       }
       connectedCallback() {
+        if ('ontouchstart' in document) {
+          let timer;
+          this.addEventListener('touchstart', () => {
+            timer = setTimeout(() => this._buildPattern(), 100);
+          });
+          this.addEventListener('touchmove', () => clearTimeout(timer));
+        } else {
+          this.addEventListener('click', () => this._buildPattern());
+        }
         this._eachShape(_ => {
           _.transitionDelay = rangeOf(600) + 'ms';
         });
@@ -169,31 +178,25 @@
       }
       _eachShape(fn) {
         const shapes = this.shadowRoot.querySelectorAll('.shape');
-        return [].map.call(shapes, shape => fn(shape.style, shape));
+        return [].map.call(shapes, (shape, index) => (
+          fn(shape.style, shape, index)
+        ));
       }
-      _buildPattern() {
-        let builder = Patterns[this.type];
+      _buildPattern(builder) {
+        builder = builder || Patterns[this.type];
         if (builder) {
           this._eachShape(builder);
         }
       }
     });
-  }
+  });
 
-  if (window.customElements) {
-    register();
-  } else {
-    let script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/custom-elements/1.0.0-alpha.3/custom-elements.min.js';
-    document.body.appendChild(script);
-    window.onload = register;
-    window.onerror = function() {
-      document.body.className += 'oldie';
-      let shot = document.querySelector('.fallback img');
-      if (shot) {
-        shot.src = shot.getAttribute('data-src');
-      }
+  window.addEventListener('error', () => {
+    document.body.className += 'oldie';
+    let shot = document.querySelector('.fallback img');
+    if (shot) {
+      shot.src = shot.getAttribute('data-src');
     }
-  }
+  });
 
 }());
