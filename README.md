@@ -9,8 +9,8 @@
 ```html
 <x-pattern>
   _.backgroundColor = color();
-  _.borderRadius = rangeOf(100)  + '%';
-  _.transform = rangeOf(180)  + 'deg';
+  _.borderRadius = rangeOf(100) + '%';
+  _.transform = `rotate(${ rangeOf(180) + 'deg' })`;
 </x-pattern>
 ```
 
