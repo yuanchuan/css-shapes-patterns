@@ -7,10 +7,11 @@
 ### Pattern definition
 
 ```html
-<x-graph>
+<x-pattern>
   _.backgroundColor = color();
-  _.borderRadius = rangeOf(10, 100)  + '%';
-</x-graph>
+  _.borderRadius = rangeOf(100)  + '%';
+  _.transform = rangeOf(180)  + 'deg';
+</x-pattern>
 ```
 
 ### Gallery
