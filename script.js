@@ -120,7 +120,7 @@
   }
 
   window.addEventListener('load', () => {
-    customElements.define('pattern-graph', class extends HTMLElement {
+    customElements.define('x-graph', class extends HTMLElement {
       constructor() {
         super();
         this.cellsCount = parseInt(this.getAttribute('cells'), 10) || 25;
