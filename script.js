@@ -27,11 +27,15 @@
     }
   }());
 
-  if (!window.customElements) {
-    let script = document.createElement('script');
-    script.src = 'polyfills/custom-elements.min.js';
-    document.body.appendChild(script);
+  function polyfill(cond, src) {
+    if (!cond) {
+      let script = document.createElement('script');
+      script.src = 'polyfills/' + src;
+      document.body.appendChild(script);
+    }
   }
+  polyfill(window.customElements, 'custom-elements.min.js');
+  polyfill(document.head.attachShadow, 'shadydom.min.js');
 
   window.addEventListener('load', () => {
     customElements.define('x-graph', class extends HTMLElement {
