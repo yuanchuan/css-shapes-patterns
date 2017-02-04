@@ -94,6 +94,10 @@ h1, x-graph {
   -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%);
 }
 
+x-graph {
+  color: transparent;
+}
+
 x-graph:hover {
   cursor: pointer;
 }

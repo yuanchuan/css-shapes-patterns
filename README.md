@@ -1,7 +1,18 @@
 # CSS Shapes Patterns
 
-![css shapes patterns](src/images/screenshot.png)
+</br> </br>
+![css shapes patterns](screenshot.jpg)
+</br> </br>
 
-## Visit
+### Pattern definition
+
+```html
+<x-graph>
+  _.backgroundColor = color();
+  _.borderRadius = rangeOf(10, 100)  + '%';
+</x-graph>
+```
+
+### Gallery
 
 [https://yuanchuan.github.io/css-shapes-patterns/](https://yuanchuan.github.io/css-shapes-patterns/)
