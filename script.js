@@ -27,92 +27,6 @@
     }
   }());
 
-  const Patterns = {
-    origin(_) {
-      _.backgroundColor = color();
-      _.borderRadius = rand(
-        '100% 0 0 0', '0 100% 0 0', '0 0 100% 0', '0 0 0 100%'
-      );
-    },
-    triangle(_) {
-      _.backgroundColor = color();
-      _.clipPath = _.webkitClipPath = `polygon(${ rand(
-        '0 0, 100% 0, 100% 100%', '100% 0, 100% 100%, 0 100%',
-        '0 0, 100% 100%, 0 100%', '0 0, 100% 0, 100% 100%'
-      )})`;
-    },
-    diamond(_) {
-      _.backgroundColor = color();
-      _.clipPath = _.webkitClipPath = `polygon(${ rand(
-        '0 0, 50% 0, 100% 100%, 0% 50%', '50% 0, 100% 0, 100% 50%, 0 100%',
-        '0 0, 100% 50%, 100% 100%, 50% 100%', '0 50%, 100% 0, 50% 100%, 0 100%'
-      )})`;
-    },
-    circles(_) {
-      _.backgroundColor = color();
-      _.borderRadius = '50%';
-      _.width = _.height = rangeOf(25, 125, 25) +  '%';
-      _.opacity = rangeOf(.2, .9, .2);
-      _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
-    },
-    tiles(_) {
-      _.backgroundColor = color();
-      _.width = _.height = rangeOf(25, 125, 25) + '%';
-      _.opacity = rangeOf(.2, .9, .2);
-      _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
-    },
-    pizza(_) {
-      _.backgroundColor = color();
-      _.opacity = rangeOf(.2, .9, .2);
-      _.clipPath = _.webkitClipPath = `polygon(
-        ${rangeOf(0, 100, 20) + '%'} ${rangeOf(0, 100, 20) + '%'},
-        ${rangeOf(0, 100, 20) + '%'} ${rangeOf(0, 100, 20) + '%'},
-        ${rangeOf(0, 100, 20) + '%'} ${rangeOf(0, 100, 20) + '%'}
-      )`;
-      _.transform = `
-        scale( ${ rand(1, 2.5, .3) })
-      `;
-    },
-    leaves(_) {
-      _.backgroundColor = color();
-      _.borderRadius = rand('100% 0', '0 100%');
-      _.width = _.height = rangeOf(25, 125, 25) + '%';
-      _.opacity = rangeOf(.2, .9, .3);
-      _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
-    },
-    ribbons(_) {
-      _.border = `${ rangeOf(2, 5) + 'px' } solid ${ color() }`;
-      _.opacity = rangeOf(.2, .9, .3);
-      _.borderRadius = '50%';
-      _.transform = `scale( ${ rangeOf(2, 30) })`;
-    },
-    squares(_) {
-      _.border = `${ rangeOf(2, 10) + 'px' } solid ${ color() }`;
-      _.opacity = rangeOf(.2, .8, .2);
-      _.width = _.height = rangeOf(25, 200, 25) + '%';
-      _.transform = 'rotate(45deg)';
-    },
-    lines(_) {
-      _.backgroundColor = color();
-      _.opacity = rangeOf(.2, .9, .3);
-      _.height = rangeOf(1, 5) + 'px';
-      _.transform = `
-        scale( ${ rand(2, 2.5, 3, 3.5) })
-        rotate( ${ rangeOf(25, 100, 25) + 'deg' })
-      `;
-    },
-    curves(_) {
-      _.opacity = rangeOf(.2, .9, .3);
-      _.borderRadius = '50%';
-      _.borderTop = `${ rangeOf(1, 10) + 'px' } solid ${ color() }`;
-      _.width = _.height = rangeOf(25, 200) + '%';
-      _.transform = `
-        scale( ${ rand(1, 1.5, 1.8, 2) })
-        rotate( ${ rangeOf(25, 360) + 'deg' })
-      `;
-    }
-  };
-
   if (!window.customElements) {
     let script = document.createElement('script');
     script.src = 'polyfills/custom-elements.min.js';
@@ -124,7 +38,9 @@
       constructor() {
         super();
         this.cellsCount = parseInt(this.getAttribute('cells'), 10) || 25;
-        this.type = this.getAttribute('type');
+        this.builder = `function(_, cell, index) {
+          ${ this.innerHTML }
+        }`;
         this.attachShadow({ mode: 'open' }).innerHTML = `
           <style>
             :host {
@@ -182,10 +98,8 @@
           fn(shape.style, shape, index)
         ));
       }
-      _buildPattern(builder = Patterns[this.type]) {
-        if (builder) {
-          this._eachShape(builder);
-        }
+      _buildPattern() {
+        eval(`this._eachShape(${ this.builder })`);
       }
     });
   });
