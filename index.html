@@ -21,7 +21,7 @@
       );
     </x-graph>
 
-    <x-graph name="triangle">
+    <x-graph name="triangle" require="clip-path">
       _.backgroundColor = color();
       _.clipPath = _.webkitClipPath = `polygon(${ rand(
         '0 0, 100% 0, 100% 100%',
@@ -31,7 +31,7 @@
       )})`;
     </x-graph>
 
-    <x-graph name="diamond">
+    <x-graph name="diamond" require="clip-path">
       _.backgroundColor = color();
       _.clipPath = _.webkitClipPath = `polygon(${ rand(
         '0 0, 50% 0, 100% 100%, 0% 50%',
@@ -64,7 +64,7 @@
       _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
     </x-graph>
 
-    <x-graph name="pizza">
+    <x-graph name="pizza" require="clip-path">
       _.backgroundColor = color();
       _.opacity = rangeOf(.2, .9, .2);
       _.clipPath = _.webkitClipPath = `polygon(

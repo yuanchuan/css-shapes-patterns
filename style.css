@@ -96,10 +96,38 @@ h1, x-graph {
 
 x-graph {
   color: transparent;
+  cursor: pointer;
 }
 
-x-graph:hover {
-  cursor: pointer;
+[require="clip-path"] {
+  position: relative;
+}
+
+[require="clip-path"] .cell {
+  opacity: .3;
+}
+
+[require="clip-path"]:after {
+  content: 'doesn\'t support `clip-path`';
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 80%;
+  text-align: center;
+  transform: translateY(-50%);
+  color: #c73095;
+  z-index: 2;
+  padding: .5em 0;
+  background: rgba(255, 255, 255, .8);
+}
+
+@supports (clip-path: polygon(0 0, 100% 0, 0 100%)) {
+  [require="clip-path"] .cell {
+    opacity: 1;
+  }
+  [require="clip-path"]:after {
+    content: none;
+  }
 }
 
 footer {
