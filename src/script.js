@@ -38,7 +38,7 @@
   polyfill(document.head.attachShadow, 'shadydom.min.js');
 
   window.addEventListener('load', () => {
-    customElements.define('x-graph', class extends HTMLElement {
+    customElements.define('x-pattern', class extends HTMLElement {
       constructor() {
         super();
         this.cellsCount = parseInt(this.getAttribute('cells'), 10) || 25;

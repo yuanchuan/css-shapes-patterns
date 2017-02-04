@@ -79,7 +79,7 @@ h1 span {
   clear: both;
   visibility: hidden;
 }
-h1, x-graph {
+h1, x-pattern {
   width: 18vw;
   height: 18vw;
   min-width: 100px;
@@ -94,7 +94,7 @@ h1, x-graph {
   -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%);
 }
 
-x-graph {
+x-pattern {
   color: transparent;
   cursor: pointer;
 }
@@ -183,13 +183,13 @@ footer a:hover {
 }
 
 @media screen and (min-width: 700px) {
-  x-graph:nth-child(4n + 1) {
+  x-pattern:nth-child(4n + 1) {
     clear: left;
   }
 }
 
 @media screen and (max-width: 1000px) {
-  h1, x-graph {
+  h1, x-pattern {
     width: 20vw;
     height: 20vw;
   }
@@ -198,13 +198,13 @@ footer a:hover {
   }
 }
 @media screen and (max-width: 900px) {
-  x-graph:nth-child(4n + 1) {
+  x-pattern:nth-child(4n + 1) {
     clear: none;
   }
-  x-graph:nth-child(3n + 1) {
+  x-pattern:nth-child(3n + 1) {
     clear: left;
   }
-  h1, x-graph {
+  h1, x-pattern {
     width: 24vw;
     height: 24vw;
   }
@@ -216,14 +216,14 @@ footer a:hover {
   }
 }
 @media screen and (max-width: 600px) {
-  x-graph:nth-child(3n + 1),
-  x-graph:nth-child(4n + 1) {
+  x-pattern:nth-child(3n + 1),
+  x-pattern:nth-child(4n + 1) {
     clear: none;
   }
-  x-graph:nth-child(2n + 1) {
+  x-pattern:nth-child(2n + 1) {
     clear: left;
   }
-  h1, x-graph {
+  h1, x-pattern {
     width: 38vw;
     height: 38vw;
   }

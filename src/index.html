@@ -11,7 +11,7 @@
   <div id="container">
     <h1><span>CSS Shapes<br/>Patterns</span></h1>
 
-    <x-graph name="origin">
+    <x-pattern name="origin">
       _.backgroundColor = color();
       _.borderRadius = rand(
         '100% 0 0 0',
@@ -19,9 +19,9 @@
         '0 0 100% 0',
         '0 0 0 100%'
       );
-    </x-graph>
+    </x-pattern>
 
-    <x-graph name="triangle" require="clip-path">
+    <x-pattern name="triangle" require="clip-path">
       _.backgroundColor = color();
       _.clipPath = _.webkitClipPath = `polygon(${ rand(
         '0 0, 100% 0, 100% 100%',
@@ -29,9 +29,9 @@
         '0 0, 100% 100%, 0 100%',
         '100% 0, 100% 100%, 0 100%'
       )})`;
-    </x-graph>
+    </x-pattern>
 
-    <x-graph name="diamond" require="clip-path">
+    <x-pattern name="diamond" require="clip-path">
       _.backgroundColor = color();
       _.clipPath = _.webkitClipPath = `polygon(${ rand(
         '0 0, 50% 0, 100% 100%, 0% 50%',
@@ -39,32 +39,32 @@
         '0 0, 100% 50%, 100% 100%, 50% 100%',
         '0 50%, 100% 0, 50% 100%, 0 100%'
       )})`;
-    </x-graph>
+    </x-pattern>
 
-    <x-graph name="circles">
+    <x-pattern name="circles">
       _.backgroundColor = color();
       _.borderRadius = '50%';
       _.width = _.height = rangeOf(25, 125, 25) +  '%';
       _.opacity = rangeOf(.2, .9, .2);
       _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
-    </x-graph>
+    </x-pattern>
 
-    <x-graph name="leaves">
+    <x-pattern name="leaves">
       _.backgroundColor = color();
       _.borderRadius = rand('100% 0', '0 100%');
       _.width = _.height = rangeOf(25, 125, 25) + '%';
       _.opacity = rangeOf(.2, .9, .3);
       _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
-    </x-graph>
+    </x-pattern>
 
-    <x-graph name="tiles">
+    <x-pattern name="tiles">
       _.backgroundColor = color();
       _.width = _.height = rangeOf(25, 125, 25) + '%';
       _.opacity = rangeOf(.2, .9, .2);
       _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
-    </x-graph>
+    </x-pattern>
 
-    <x-graph name="pizza" require="clip-path">
+    <x-pattern name="pizza" require="clip-path">
       _.backgroundColor = color();
       _.opacity = rangeOf(.2, .9, .2);
       _.clipPath = _.webkitClipPath = `polygon(
@@ -73,9 +73,9 @@
         ${ rangeOf(0, 100, 20) + '%'} ${rangeOf(0, 100, 20) + '%'}
       )`;
       _.transform = `scale(${ rand(1, 2.5, .3) })`;
-    </x-graph>
+    </x-pattern>
 
-    <x-graph name="lines">
+    <x-pattern name="lines">
       _.backgroundColor = color();
       _.opacity = rangeOf(.2, .9, .3);
       _.height = rangeOf(1, 5) + 'px';
@@ -83,23 +83,23 @@
         scale(${ rand(2, 2.5, 3, 3.5) })
         rotate(${ rangeOf(25, 100, 25) + 'deg' })
       `;
-    </x-graph>
+    </x-pattern>
 
-    <x-graph name="squares">
+    <x-pattern name="squares">
       _.border = `${ rangeOf(2, 10) + 'px' } solid ${ color() }`;
       _.opacity = rangeOf(.2, .8, .2);
       _.width = _.height = rangeOf(25, 200, 25) + '%';
       _.transform = 'rotate(45deg)';
-    </x-graph>
+    </x-pattern>
 
-    <x-graph name="ribbons">
+    <x-pattern name="ribbons">
       _.border = `${ rangeOf(2, 5) + 'px' } solid ${ color() }`;
       _.opacity = rangeOf(.2, .9, .3);
       _.borderRadius = '50%';
       _.transform = `scale(${ rangeOf(2, 30) })`;
-    </x-graph>
+    </x-pattern>
 
-    <x-graph name="curves">
+    <x-pattern name="curves">
       _.opacity = rangeOf(.2, .9, .3);
       _.borderRadius = '50%';
       _.borderTop = `${ rangeOf(1, 10) + 'px' } solid ${ color() }`;
@@ -108,7 +108,7 @@
         scale(${ rand(1, 1.5, 1.8, 2) })
         rotate(${ rangeOf(25, 360) + 'deg' })
       `;
-    </x-graph>
+    </x-pattern>
   </div>
 
   <div class="fallback">
