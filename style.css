@@ -121,13 +121,19 @@ x-graph {
   background: rgba(255, 255, 255, .8);
 }
 
-@supports (clip-path: polygon(0 0, 100% 0, 0 100%)) {
+@supports (clip-path: polygon(0 0, 0 0, 0 0)) {
   [require="clip-path"] .cell {
     opacity: 1;
   }
   [require="clip-path"]:after {
     content: none;
   }
+}
+
+/* incase no @supports */
+[require="clip-path"]:after {
+  clip-path: polygon(0 0, 0 0, 0 0);
+  -webkit-clip-path: polygon(0 0, 0 0, 0 0);
 }
 
 footer {
