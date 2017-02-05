@@ -113,12 +113,8 @@
     <x-pattern name="clouds">
       _.borderRadius = '100% 0 0 0';
       _.border = `0 solid ${ color(rangeOf(.2, .9, .1)) }`;
-      _.borderWidth = rand(
-        '.5em 0 0 .5em'
-      );
-      _.transform = `
-        skew(${ -1 * rangeOf(40, 50) + 'deg'})
-      `;
+      _.borderWidth = rand('.5em 0 0 .5em');
+      _.transform = `skew(${ -1 * rangeOf(40, 50) + 'deg'})`;
     </x-pattern>
   </div>
 
