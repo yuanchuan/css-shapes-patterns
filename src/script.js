@@ -47,7 +47,7 @@
       constructor() {
         super();
         this.cellsCount = parseInt(this.getAttribute('cells'), 10) || 25;
-        this.builder = `function(_, cell, index) {
+        this.builder = `function(_, __, index) {
           ${ this.innerHTML }
         }`;
         this.attachShadow({ mode: 'open' }).innerHTML = `
@@ -104,7 +104,7 @@
       _eachShape(fn) {
         const shapes = this.shadowRoot.querySelectorAll('.shape');
         return [].map.call(shapes, (shape, index) => (
-          fn(shape.style, shape, index)
+          fn(shape.style, shape.parentNode.style, index)
         ));
       }
       _buildPattern() {
