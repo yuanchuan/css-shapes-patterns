@@ -42,31 +42,27 @@
     </x-pattern>
 
     <x-pattern name="circles">
-      _.backgroundColor = color();
+      _.backgroundColor = color(rangeOf(.2, .9, .2));
       _.borderRadius = '50%';
       _.width = _.height = rangeOf(25, 125, 25) +  '%';
-      _.opacity = rangeOf(.2, .9, .2);
       _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
     </x-pattern>
 
     <x-pattern name="leaves">
-      _.backgroundColor = color();
+      _.backgroundColor = color(rangeOf(.2, .9, .3));
       _.borderRadius = rand('100% 0', '0 100%');
       _.width = _.height = rangeOf(25, 125, 25) + '%';
-      _.opacity = rangeOf(.2, .9, .3);
       _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
     </x-pattern>
 
     <x-pattern name="tiles">
-      _.backgroundColor = color();
+      _.backgroundColor = color(rangeOf(.2, .9, .2));
       _.width = _.height = rangeOf(25, 125, 25) + '%';
-      _.opacity = rangeOf(.2, .9, .2);
       _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
     </x-pattern>
 
     <x-pattern name="pizza" require="clip-path">
-      _.backgroundColor = color();
-      _.opacity = rangeOf(.2, .9, .2);
+      _.backgroundColor = color(rangeOf(.2, .9, .2));
       _.clipPath = _.webkitClipPath = `polygon(
         ${ rangeOf(0, 100, 20) + '%'} ${rangeOf(0, 100, 20) + '%'},
         ${ rangeOf(0, 100, 20) + '%'} ${rangeOf(0, 100, 20) + '%'},
@@ -76,8 +72,7 @@
     </x-pattern>
 
     <x-pattern name="lines">
-      _.backgroundColor = color();
-      _.opacity = rangeOf(.2, .9, .3);
+      _.backgroundColor = color(rangeOf(.2, .9, .3));
       _.height = rangeOf(1, 5) + 'px';
       _.transform = `
         scale(${ rand(2, 2.5, 3, 3.5) })
@@ -86,23 +81,20 @@
     </x-pattern>
 
     <x-pattern name="squares">
-      _.border = `${ rangeOf(2, 10) + 'px' } solid ${ color() }`;
-      _.opacity = rangeOf(.2, .8, .2);
+      _.border = `${ rangeOf(2, 10) + 'px' } solid ${ color(rangeOf(.2, .8, .2)) }`;
       _.width = _.height = rangeOf(25, 200, 25) + '%';
       _.transform = 'rotate(45deg)';
     </x-pattern>
 
     <x-pattern name="ribbons">
-      _.border = `${ rangeOf(2, 5) + 'px' } solid ${ color() }`;
-      _.opacity = rangeOf(.2, .9, .3);
+      _.border = `${ rangeOf(2, 5) + 'px' } solid ${ color(rangeOf(.2, .9, .3)) }`;
       _.borderRadius = '50%';
       _.transform = `scale(${ rangeOf(2, 30) })`;
     </x-pattern>
 
     <x-pattern name="curves">
-      _.opacity = rangeOf(.2, .9, .3);
       _.borderRadius = '50%';
-      _.borderTop = `${ rangeOf(1, 10) + 'px' } solid ${ color() }`;
+      _.borderTop = `${ rangeOf(1, 10) + 'px' } solid ${ color(rangeOf(.2, .9, .3)) }`;
       _.width = _.height = rangeOf(25, 200) + '%';
       _.transform = `
         scale(${ rand(1, 1.5, 1.8, 2) })
@@ -113,9 +105,10 @@
     <x-pattern name="clouds">
       _.borderRadius = '100% 0 0 0';
       _.border = `0 solid ${ color(rangeOf(.2, .9, .1)) }`;
-      _.borderWidth = rand('.5em 0 0 .5em');
-      _.transform = `skew(${ -1 * rangeOf(40, 50) + 'deg'})`;
+      _.borderWidth = '.5em 0 0 .5em';
+      _.transform = `skew(${ -1 * rangeOf(30, 40) + 'deg'})`;
     </x-pattern>
+
   </div>
 
   <div class="fallback">
