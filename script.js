@@ -5,8 +5,13 @@
     return args[Math.floor(Math.random() * args.length)];
   }
 
-  function color() {
-    return rand('#272884', '#c73095', '#90278a', '#4c207f');
+  function color(alpha = 1) {
+    return rand(
+      `rgba(39, 40, 132, ${ alpha })`,
+      `rgba(199, 48, 149, ${ alpha })`,
+      `rgba(144, 39, 138, ${ alpha })`,
+      `rgba(76, 32, 127, ${ alpha })`
+    );
   }
 
   const rangeOf = (function() {
