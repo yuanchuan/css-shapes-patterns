@@ -87,9 +87,9 @@
     </x-pattern>
 
     <x-pattern name="ribbons">
-      _.border = `${ rangeOf(2, 5) + 'px' } solid ${ color(rangeOf(.2, .9, .3)) }`;
+      _.border = `${ rangeOf(2, 5) + 'px' } solid ${ color(rangeOf(.2, .8, .2)) }`;
       _.borderRadius = '50%';
-      _.transform = `scale(${ rangeOf(2, 30) })`;
+      _.transform = `scale(${ rangeOf(5, 20) })`;
     </x-pattern>
 
     <x-pattern name="curves">
@@ -105,25 +105,25 @@
     <x-pattern name="clouds">
       _.borderRadius = '100% 0 0 0';
       _.border = `0 solid ${ color(rangeOf(.2, .9, .1)) }`;
-      _.borderWidth = '.5em 0 0 .5em';
+      _.borderTopWidth = _.borderLeftWidth = '.4em';
       _.transform = `skew(${ -1 * rangeOf(30, 40) + 'deg'})`;
     </x-pattern>
 
     <x-pattern name="raindrops">
-      _.marginLeft = '.5em';
-      _.borderRadius = '0 20% 80% 20%';
       if (index % 2) {
+        _.marginLeft = '.5em';
+        _.borderRadius = '0 20% 80% 20%';
         _.backgroundColor = color(rangeOf(.2, .9, .2));
-        _.boxShadow = `-1em 6em 0 ${rangeOf(-10, 20) + 'px'} ${ color(rangeOf(.2, .8, .1)) }`;
+        _.boxShadow = `-1em 6em 0 0 ${ color(rangeOf(.2, .8, .1)) }`;
+        _.transform = `
+          rotateY(65deg) rotate(45deg)
+          scale(${ rangeOf(.6, 1, .1) })
+          translate(
+            ${ rand(0, -5, 5) + 'px'},
+            ${ rand(0, -5, 5) + 'px'}
+          )
+        `;
       }
-      _.transform = `
-        rotateY(65deg) rotate(45deg)
-        scale(.8)
-        translate(
-          ${ rand(0, -5, 5) + 'px'},
-          ${ rand(0, -5, 5) + 'px'}
-        )
-      `;
     </x-pattern>
   </div>
 
