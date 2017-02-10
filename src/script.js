@@ -47,9 +47,12 @@
       constructor() {
         super();
         this.cellsCount = parseInt(this.getAttribute('cells'), 10) || 25;
-        this.builder = `function(_, __, index) {
-          ${ this.innerHTML }
-        }`;
+        this.builder = `function(_, __, index) { ${
+          this.innerHTML
+            .replace(/&gt;/g, '>')
+            .replace(/&lt;/g, '<')
+            .replace(/&amp;/g, '&')
+        }}`;
         this.attachShadow({ mode: 'open' }).innerHTML = `
           <style>
             :host {
