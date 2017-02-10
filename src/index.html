@@ -125,6 +125,21 @@
         `;
       }
     </x-pattern>
+
+    <x-pattern name="tubes">
+      let c = color(rangeOf(.2, .9, .1));
+      _.boxShadow = `
+        inset 0 0 0 1px ${ c },
+        inset 2px 2px 4px 0 ${ c }
+      `;
+      _.left = '25%';
+      _.top = '-42%';
+      _.width = '50%';
+      _.height = '192%';
+      _.borderRadius = '30px';
+      _.transform = 'rotate(45deg)';
+    </x-pattern>
+
   </div>
 
   <div class="fallback">
