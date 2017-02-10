@@ -109,6 +109,20 @@
       _.transform = `skew(${ -1 * rangeOf(30, 40) + 'deg'})`;
     </x-pattern>
 
+    <x-pattern name="tubes">
+      let c = color(rangeOf(.2, .9, .1));
+      _.boxShadow = `
+        inset 0 0 0 1px ${ c },
+        inset 2px 2px 4px 0 ${ c }
+      `;
+      _.left = '25%';
+      _.top = '-42%';
+      _.width = '50%';
+      _.height = '192%';
+      _.borderRadius = '30px';
+      _.transform = 'rotate(45deg)';
+    </x-pattern>
+
     <x-pattern name="raindrops">
       if (index % 2) {
         _.marginLeft = '.5em';
@@ -126,18 +140,15 @@
       }
     </x-pattern>
 
-    <x-pattern name="tubes">
-      let c = color(rangeOf(.2, .9, .1));
-      _.boxShadow = `
-        inset 0 0 0 1px ${ c },
-        inset 2px 2px 4px 0 ${ c }
-      `;
-      _.left = '25%';
-      _.top = '-42%';
+    <x-pattern name="Jupiter">
+      _.boxShadow = `inset 0 0 0 ${ rangeOf(8)+ 'px' } ${ color(rand(0, .2, .4, .6)) }`;
       _.width = '50%';
-      _.height = '192%';
-      _.borderRadius = '30px';
-      _.transform = 'rotate(45deg)';
+      _.height = '120%';
+      _.borderRadius = '50%';
+      _.transform = `
+        scaleX(${ rangeOf(5, 8) })
+        rotate(${ rand(45, 60, 90) + 'deg' })
+      `;
     </x-pattern>
 
   </div>
