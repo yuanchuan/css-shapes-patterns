@@ -89,7 +89,7 @@
     <x-pattern name="ribbons">
       _.border = `${ rangeOf(2, 5) + 'px' } solid ${ color(rangeOf(.2, .8, .2)) }`;
       _.borderRadius = '50%';
-      _.transform = `scale(${ rangeOf(5, 20) })`;
+      _.transform = `scale(${ rangeOf(5, 18) })`;
     </x-pattern>
 
     <x-pattern name="curves">
@@ -103,24 +103,24 @@
     </x-pattern>
 
     <x-pattern name="clouds">
-      _.borderRadius = '100% 0 0 0';
-      _.border = `0 solid ${ color(rangeOf(.2, .9, .1)) }`;
-      _.borderTopWidth = _.borderLeftWidth = '.4em';
-      _.transform = `skew(${ -1 * rangeOf(30, 40) + 'deg'})`;
+      let c = color(rangeOf(.2, .8, .2));
+      _.borderRadius = rangeOf(50, 100) + '%';
+      _.border = `0 solid ${ c }`;
+      _.borderTopWidth = _.borderRightWidth = '.4em';
+      _.transform = `skew(${ rangeOf(30, 50) + 'deg'})`;
     </x-pattern>
 
     <x-pattern name="tubes">
-      let c = color(rangeOf(.2, .9, .1));
+      let c = _.backgroundColor = color(rangeOf(.2, .8, .2));
       _.boxShadow = `
         inset 0 0 0 1px ${ c },
         inset 2px 2px 4px 0 ${ c }
       `;
       _.left = '25%';
-      _.top = '-42%';
       _.width = '50%';
-      _.height = '192%';
-      _.borderRadius = '30px';
-      _.transform = 'rotate(45deg)';
+      _.height = '156%';
+      _.borderRadius = '35px';
+      _.transform = `rotate(${ ((index % 2 ) ? -1 : 1) * 15 + 'deg' })`;
     </x-pattern>
 
     <x-pattern name="raindrops">
@@ -140,7 +140,7 @@
       }
     </x-pattern>
 
-    <x-pattern name="Jupiter">
+    <x-pattern name="planet">
       _.boxShadow = `inset 0 0 0 ${ rangeOf(8)+ 'px' } ${ color(rand(0, .2, .4, .6)) }`;
       _.width = '50%';
       _.height = '120%';
