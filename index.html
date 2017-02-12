@@ -102,25 +102,26 @@
       `;
     </x-pattern>
 
-    <x-pattern name="clouds">
-      let c = color(rangeOf(.2, .8, .2));
-      _.borderRadius = rangeOf(50, 100) + '%';
-      _.border = `0 solid ${ c }`;
-      _.borderTopWidth = _.borderRightWidth = '.4em';
-      _.transform = `skew(${ rangeOf(30, 50) + 'deg'})`;
-    </x-pattern>
-
-    <x-pattern name="tubes">
+    <x-pattern name="butterfly">
       let c = _.backgroundColor = color(rangeOf(.2, .8, .2));
       _.boxShadow = `
         inset 0 0 0 1px ${ c },
         inset 2px 2px 4px 0 ${ c }
       `;
-      _.left = '25%';
+      _.left = '50%';
       _.width = '50%';
-      _.height = '156%';
-      _.borderRadius = '35px';
-      _.transform = `rotate(${ ((index % 2 ) ? -1 : 1) * 15 + 'deg' })`;
+      _.borderRadius = '100% / 90%';
+      _.transform = `
+        translate(${ ((index % 2 ) ? -1 : 1) * 60 + '%' })
+        rotate(${ ((index % 2 ) ? 1 : -1) * rangeOf(20, 40) + 'deg' })
+      `;
+    </x-pattern>
+
+    <x-pattern name="clouds">
+      _.border = `0 solid ${ color(rangeOf(.2, .9, .1)) }`;
+      _.borderRadius = '100%';
+      _.borderTopWidth = _.borderLeftWidth = '.4em';
+      _.transform = `skewX(${-1 * rangeOf(30, 40) + 'deg'})`;
     </x-pattern>
 
     <x-pattern name="raindrops">
