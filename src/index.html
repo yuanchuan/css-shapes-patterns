@@ -152,6 +152,33 @@
       `;
     </x-pattern>
 
+    <x-pattern name="tubes">
+      let c = color(rangeOf(.2, .8, .2));
+      _.boxShadow = `
+        inset 0 0 0 1px ${ c },
+        inset 2px 2px 4px 0 ${ c }
+      `;
+      _.left = '25%';
+      _.top = '-42%';
+      _.width = '50%';
+      _.height = '192%';
+      _.borderRadius = '100% / 28%';
+      _.transform = `rotate(${ rand(45) + 'deg' })`;
+    </x-pattern>
+
+    <x-pattern name="knots">
+      let c = color(rangeOf(.2, .8, .2));
+      _.boxShadow = `
+        inset 0 0 0 1px ${ c },
+        inset 2px 2px 4px 0 ${ c }
+      `;
+      _.left = '25%';
+      _.width = '50%';
+      _.height = '156%';
+      _.borderRadius = '100% / 40%';
+      _.transform = `rotate(${ ((index % 2 ) ? -1 : 1) * 15 + 'deg' })`;
+    </x-pattern>
+
   </div>
 
   <div class="fallback">
