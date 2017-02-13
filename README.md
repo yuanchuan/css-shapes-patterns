@@ -1,7 +1,7 @@
 # CSS Shapes Patterns
 
 </br> </br>
-![css shapes patterns](screenshot.jpg)
+![css shapes patterns](screenshot.png)
 </br> </br>
 
 ### Pattern definition
