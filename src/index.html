@@ -179,6 +179,35 @@
       _.transform = `rotate(${ ((index % 2 ) ? -1 : 1) * 15 + 'deg' })`;
     </x-pattern>
 
+    <x-pattern name="cross">
+      _.borderStyle = 'solid';
+      _.borderColor = color(rangeOf(.2, .9, .1));
+      _.borderImage = `
+        linear-gradient(
+          to right,
+          ${ color(rangeOf(.2, .9, .1)) } 50%,
+          ${ color(rangeOf(.2, .9, .1)) } 50%
+        ) 10`;
+
+      if (index % 2) {
+        _.borderWidth = '0 0 2px 2px';
+        _.background = `
+          linear-gradient(90deg, ${ color(rangeOf(.2, .9, .1)) }, ${ color(rangeOf(.2, .9, .1)) })
+          5% 90% / 25% 1px no-repeat
+        `;
+      } else {
+        _.borderWidth = '0 2px 2px 0';
+        _.background = `
+          linear-gradient(90deg, ${ color(rangeOf(.2, .9, .1)) }, ${ color(rangeOf(.2, .9, .1)) } )
+          90% 95% / 1px 25% no-repeat
+        `;
+      }
+      _.transform = `
+        translate(${ ((index % 2 ) ? -1 : 1) * 15 + '%' })
+        rotate(${ ((index % 2 ) ? 1 : -1) * 45 + 'deg' })
+      `;
+    </x-pattern>
+
   </div>
 
   <div class="fallback">
