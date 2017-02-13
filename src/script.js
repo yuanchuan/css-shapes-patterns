@@ -46,8 +46,8 @@
     customElements.define('x-pattern', class extends HTMLElement {
       constructor() {
         super();
-        this.cellsCount = parseInt(this.getAttribute('cells'), 10) || 25;
-        this.builder = `function(_, __, index) { ${
+        this.cellsCount = 25;
+        this.builder = `function(_, __, index, setvar) { ${
           this.innerHTML
             .replace(/&gt;/g, '>')
             .replace(/&lt;/g, '<')
@@ -104,10 +104,28 @@
         });
         setTimeout(() => this._buildPattern(), rangeOf(200, 1000));
       }
+      setvar(name, value) {
+        if (!this.vars) this.vars = {};
+        let key = this.vars[name];
+        if (key && (+new Date()) - key.stamp <= 500) {
+          return key.value;
+        }
+        this.vars[name] = {
+          value: value,
+          stamp: +new Date()
+        };
+        return value;
+      }
       _eachShape(fn) {
         const shapes = this.shadowRoot.querySelectorAll('.shape');
         return [].map.call(shapes, (shape, index) => (
-          fn(shape.style, shape.parentNode.style, index)
+          fn.call(
+            this,
+            shape.style,
+            shape.parentNode.style,
+            index,
+            this.setvar.bind(this)
+          )
         ));
       }
       _buildPattern() {
