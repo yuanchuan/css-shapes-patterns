@@ -212,7 +212,7 @@
 
     <x-pattern name="cross">
       let group = index % 2 ? (index - 1) : index;
-      _.transitionDelay = setvar('delay' + group, rangeOf(600) + 'ms');
+      _.transitionDelay = setvar('delay' + group, rangeOf(300) + 'ms');
       _.borderStyle = 'solid';
       _.borderColor = color(rangeOf(.2, .9, .1));
       _.borderImage = `linear-gradient(
@@ -257,6 +257,61 @@
         `;
       }
     </x-pattern>
+
+    <x-pattern name="stings">
+      let c = color(rangeOf(.2, .9, .1))
+      _.backgroundRepeat = 'no-repeat';
+      _.backgroundSize = `
+        ${ rangeOf(30, 100) + '%' },
+        ${ rangeOf(30, 100) + '%' }
+      `;
+      _.backgroundImage = `
+        linear-gradient(-45deg, ${ c } 50%, transparent 50%),
+        linear-gradient(-45deg, ${ c } 50%, transparent 50%)
+      `;
+      _.backgroundPosition = index % 2
+        ? '0 0, 100% 100%'
+        : '100% 0, 0 100%';
+    </x-pattern>
+
+    <x-pattern class="lollipop">
+      let c = color(rangeOf(.2, .9, .1))
+      _.borderRadius = '50%';
+      _.backgroundColor = '#fafafa';
+      _.transition = 'transform .3s ease';
+      _.transform = `scale(${ rangeOf(2, 3, .1) })`;
+      _.backgroundImage = `
+        repeating-radial-gradient(circle, ${ c }, ${ c } 2px, #fafafa 2px, #fafafa 6px)
+      `;
+    </x-pattern>
+
+    <x-pattern name="stamps">
+      if (index % 2) {
+        let c = color(rangeOf(.2, .9, .1))
+        let size = rangeOf(30, 70);
+        _.transform =`
+          rotate(${ (index % 5 ) * 8 + 45 + 'deg' })
+          scale(1.1)
+        `;
+        _.backgroundRepeat = 'no-repeat';
+        _.backgroundImage = `
+          linear-gradient(${ c }, ${ c }),
+          linear-gradient(${ c }, ${ c }),
+          linear-gradient(${ c }, ${ c }),
+          linear-gradient(${ c }, ${ c })
+        `;
+        _.backgroundSize = `
+          ${ size - 8 + '%' }  ${ size - 8  + '%' },
+          ${ (100 - size - 8) + '%' } ${ size - 8 + '%'},
+          ${ (100 - size - 8) + '%' } ${ (100 - size - 8) + '%'},
+          ${ size - 8+ '%' } ${ (100 - size - 8) + '%'}
+        `;
+        _.backgroundPosition = `
+          0 0, 100% 0 , 100% 100%, 0 100%
+        `;
+      }
+    </x-pattern>
+
   </div>
 
   <div class="fallback">
