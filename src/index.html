@@ -258,6 +258,30 @@
       }
     </x-pattern>
 
+    <x-pattern name="eyes">
+      let c = color(rangeOf(.2, .9, .1))
+      _.borderRadius = '50%';
+      _.border = `2px solid ${ c }`;
+      _.boxSizing = 'border-box';
+      _.willChange = 'transform';
+      _.transform = `
+        scale(${ rangeOf(.8, 1.2, .1) })
+      `;
+      _.backgroundImage = `radial-gradient(${ c } 50%, transparent 50%)`;
+      _.backgroundRepeat = 'no-repeat';
+      _.backgroundSize = '4px 4px';
+      _.top = '-20%';
+      _.left = '-25%';
+      if (index % 2) {
+        _.borderRightColor = _.borderBottomColor = 'transparent';
+        _.backgroundPosition = '42% 42%';
+        _.transform = `translate(60%, 60%)`;
+      } else {
+        _.borderLeftColor = _.borderTopColor = 'transparent';
+        _.backgroundPosition = '58% 58%';
+      }
+    </x-pattern>
+
     <x-pattern name="stings">
       let c = color(rangeOf(.2, .9, .1))
       _.backgroundRepeat = 'no-repeat';
