@@ -109,6 +109,17 @@
       _.transform = `skewX(${-1 * rangeOf(30, 40) + 'deg'})`;
     </x-pattern>
 
+    <x-pattern class="lollipop">
+      let c = color(rangeOf(.2, .9, .1))
+      _.borderRadius = '50%';
+      _.backgroundColor = '#fafafa';
+      _.transition = 'transform .3s ease';
+      _.transform = `scale(${ rangeOf(2, 3, .1) })`;
+      _.backgroundImage = `
+        repeating-radial-gradient(circle closest-side, ${ c }, ${ c } 2px, #fafafa 2px, #fafafa 6px)
+      `;
+    </x-pattern>
+
     <x-pattern name="stones">
       let c = color(rangeOf(.2, .9, .1));
       _.boxShadow = `
@@ -127,6 +138,116 @@
       _.top = '50%';
       _.transform = 'translate(-50%, -50%)';
       _.boxSizing = 'border-box';
+    </x-pattern>
+
+    <x-pattern name="planet">
+      _.border = `${ rangeOf(8)+ 'px' } solid ${ color(rand(0, .2, .4, .6)) }`;
+      _.width = '50%';
+      _.height = '120%';
+      _.borderRadius = '50%';
+      _.transform = `
+        scaleX(${ rangeOf(5, 8) })
+        rotate(${ rand(45, 60, 90) + 'deg' })
+      `;
+    </x-pattern>
+
+    <x-pattern name="knots">
+      let c = color(rangeOf(.2, .8, .2));
+      _.transitionDelay = setvar('delay' + (index % 5), rangeOf(600) + 'ms');
+      _.boxShadow = `
+        inset 0 0 0 1px ${ c },
+        inset 2px 2px 4px 0 ${ c }
+      `;
+      _.left = '25%';
+      _.width = '50%';
+      _.height = '156%';
+      _.borderRadius = '100% / 40%';
+      _.transform = `
+        translateY(${ setvar('offset' + (index % 5), rangeOf(-10, 10)) + 'px' })
+        rotate(${ ((index % 2 ) ? -1 : 1) * setvar('deg', rangeOf(15, 30)) + 'deg' })
+      `;
+    </x-pattern>
+
+    <x-pattern name="tubes">
+      let c = color(rangeOf(.2, .8, .2));
+      _.boxShadow = `
+        inset 0 0 0 1px ${ c },
+        inset 2px 2px 4px 0 ${ c }
+      `;
+      _.left = '25%';
+      _.top = '-42%';
+      _.width = '50%';
+      _.height = '192%';
+      _.borderRadius = '100% / 28%';
+      _.transform = `
+        rotate(45deg)
+      `;
+    </x-pattern>
+
+    <x-pattern name="math">
+      let c = color(rangeOf(.2, .8, .2));
+      _.boxShadow = `
+        inset 0 0 0 1px ${ c },
+        inset 2px 2px 4px 0 ${ c }
+      `;
+      _.top = '-50%';
+      _.left = '-15%';
+      _.width = '90%';
+      _.height = '200%';
+      _.borderRadius = '100% / 80%';
+      _.transform = `rotate(${ ((index % 2 ) ? 1 : -1) * 45 + 'deg' })`;
+    </x-pattern>
+
+    <x-pattern name="butterfly">
+      let c = color(rangeOf(.2, .8, .2));
+      let group = index % 2 ? (index - 1) : index;
+
+      _.transitionDelay = setvar('delay' + group, rangeOf(600) + 'ms');
+      _.boxShadow = `
+        inset 0 0 0 1px ${ c },
+        inset 2px 2px 4px 0 ${ c }
+      `;
+      _.left = '50%';
+      _.top = setvar('top' + group, rangeOf(-5, 5) + 'px');
+      _.width = '50%';
+      _.borderRadius = '100% / 90%';
+      _.transform = `
+        translate(${ ((index % 2 ) ? -1 : 1) * 60 + '%' })
+        rotate(${ ((index % 2 ) ? 1 : -1) * setvar('deg' + group, rangeOf(20, 50)) + 'deg' })
+      `;
+    </x-pattern>
+
+    <x-pattern name="raindrops">
+      if (index % 2) {
+        _.marginLeft = '.5em';
+        _.borderRadius = '0 20% 80% 20%';
+        _.backgroundColor = color(rangeOf(.2, .9, .2));
+        _.boxShadow = `-1em 6em 0 0 ${ color(rangeOf(.2, .8, .1)) }`;
+        _.transform = `
+          rotateY(65deg) rotate(45deg)
+          scale(${ rangeOf(.6, 1, .1) })
+          translate(
+            ${ rand(0, -5, 5) + 'px'},
+            ${ rand(0, -5, 5) + 'px'}
+          )
+        `;
+      }
+    </x-pattern>
+
+    <x-pattern name="stings">
+      let c = color(rangeOf(.2, .9, .1))
+      _.backgroundRepeat = 'no-repeat';
+      _.backgroundSize = `
+        ${ rangeOf(30, 100) + '%' },
+        ${ rangeOf(30, 100) + '%' }
+      `;
+      _.backgroundImage = `
+        linear-gradient(-45deg, ${ c } 50%, transparent 50%),
+        linear-gradient(-45deg, ${ c } 50%, transparent 50%)
+      `;
+      _.backgroundPosition = index % 2
+        ? '0 0, 100% 100%'
+        : '100% 0, 0 100%';
     </x-pattern>
 
     <x-pattern name="flags" require="clip-path">
@@ -161,152 +282,6 @@
           _.transform = 'translateY(0) rotate(-16deg)';
           break;
       }
-    </x-pattern>
-
-    <x-pattern name="planet">
-      _.border = `${ rangeOf(8)+ 'px' } solid ${ color(rand(0, .2, .4, .6)) }`;
-      _.width = '50%';
-      _.height = '120%';
-      _.borderRadius = '50%';
-      _.transform = `
-        scaleX(${ rangeOf(5, 8) })
-        rotate(${ rand(45, 60, 90) + 'deg' })
-      `;
-    </x-pattern>
-
-    <x-pattern name="knots">
-      let c = color(rangeOf(.2, .8, .2));
-      _.transitionDelay = setvar('delay' + (index % 5), rangeOf(600) + 'ms');
-      _.boxShadow = `
-        inset 0 0 0 1px ${ c },
-        inset 2px 2px 4px 0 ${ c }
-      `;
-      _.left = '25%';
-      _.width = '50%';
-      _.height = '156%';
-      _.borderRadius = '100% / 40%';
-      _.transform = `
-        translateY(${ setvar('offset' + (index % 5), rangeOf(-10, 10)) + 'px' })
-        rotate(${ ((index % 2 ) ? -1 : 1) * setvar('deg', rangeOf(15, 30)) + 'deg' })
-      `;
-    </x-pattern>
-
-    <x-pattern name="butterfly">
-      let c = _.backgroundColor = color(rangeOf(.2, .8, .2));
-      let group = index % 2 ? (index - 1) : index;
-
-      _.transitionDelay = setvar('delay' + group, rangeOf(600) + 'ms');
-      _.boxShadow = `
-        inset 0 0 0 1px ${ c },
-        inset 2px 2px 4px 0 ${ c }
-      `;
-      _.left = '50%';
-      _.top = setvar('top' + group, rangeOf(-5, 5) + 'px');
-      _.width = '50%';
-      _.borderRadius = '100% / 90%';
-      _.transform = `
-        translate(${ ((index % 2 ) ? -1 : 1) * 60 + '%' })
-        rotate(${ ((index % 2 ) ? 1 : -1) * setvar('deg' + group, rangeOf(20, 50)) + 'deg' })
-      `;
-    </x-pattern>
-
-    <x-pattern name="cross">
-      let group = index % 2 ? (index - 1) : index;
-      _.transitionDelay = setvar('delay' + group, rangeOf(300) + 'ms');
-      _.borderStyle = 'solid';
-      _.borderColor = color(rangeOf(.2, .9, .1));
-      _.borderImage = `linear-gradient(
-        to right,
-        ${ color(rangeOf(.2, .9, .1)) } 50%,
-        ${ color(rangeOf(.2, .9, .1)) } 50%
-      ) 1`;
-      if (index % 2) {
-        _.borderWidth = '0 0 2px 2px';
-        _.background = `
-          linear-gradient(90deg, ${ color(rangeOf(.2, .9, .1)) }, ${ color(rangeOf(.2, .9, .1)) })
-          5% 90% / 25% 1px no-repeat
-        `;
-      } else {
-        _.borderWidth = '0 2px 2px 0';
-        _.background = `
-          linear-gradient(90deg, ${ color(rangeOf(.2, .9, .1)) }, ${ color(rangeOf(.2, .9, .1)) } )
-          90% 95% / 1px 25% no-repeat
-        `;
-      }
-      _.transform = `
-        translate(${ ((index % 2 ) ? -1 : 1) * 15 + '%' })
-        rotate(${ ((index % 2 ) ? 1 : -1) * 45 + 'deg' })
-      `;
-      _.top = setvar('top' + group, rangeOf(-5, 5) + 'px');
-      _.left = setvar('left' + group, rangeOf(-5, 5) + 'px');
-    </x-pattern>
-
-    <x-pattern name="raindrops">
-      if (index % 2) {
-        _.marginLeft = '.5em';
-        _.borderRadius = '0 20% 80% 20%';
-        _.backgroundColor = color(rangeOf(.2, .9, .2));
-        _.boxShadow = `-1em 6em 0 0 ${ color(rangeOf(.2, .8, .1)) }`;
-        _.transform = `
-          rotateY(65deg) rotate(45deg)
-          scale(${ rangeOf(.6, 1, .1) })
-          translate(
-            ${ rand(0, -5, 5) + 'px'},
-            ${ rand(0, -5, 5) + 'px'}
-          )
-        `;
-      }
-    </x-pattern>
-
-    <x-pattern name="eyes">
-      let c = color(rangeOf(.2, .9, .1))
-      _.borderRadius = '50%';
-      _.border = `2px solid ${ c }`;
-      _.boxSizing = 'border-box';
-      _.willChange = 'transform';
-      _.transform = `
-        scale(${ rangeOf(.8, 1.2, .1) })
-      `;
-      _.backgroundImage = `radial-gradient(${ c } 50%, transparent 50%)`;
-      _.backgroundRepeat = 'no-repeat';
-      _.backgroundSize = '4px 4px';
-      _.top = '-20%';
-      _.left = '-25%';
-      if (index % 2) {
-        _.borderRightColor = _.borderBottomColor = 'transparent';
-        _.backgroundPosition = '42% 42%';
-        _.transform = `translate(60%, 60%)`;
-      } else {
-        _.borderLeftColor = _.borderTopColor = 'transparent';
-        _.backgroundPosition = '58% 58%';
-      }
-    </x-pattern>
-
-    <x-pattern class="lollipop">
-      let c = color(rangeOf(.2, .9, .1))
-      _.borderRadius = '50%';
-      _.backgroundColor = '#fafafa';
-      _.transition = 'transform .3s ease';
-      _.transform = `scale(${ rangeOf(2, 3, .1) })`;
-      _.backgroundImage = `
-        repeating-radial-gradient(circle closest-side, ${ c }, ${ c } 2px, #fafafa 2px, #fafafa 6px)
-      `;
-    </x-pattern>
-
-    <x-pattern name="stings">
-      let c = color(rangeOf(.2, .9, .1))
-      _.backgroundRepeat = 'no-repeat';
-      _.backgroundSize = `
-        ${ rangeOf(30, 100) + '%' },
-        ${ rangeOf(30, 100) + '%' }
-      `;
-      _.backgroundImage = `
-        linear-gradient(-45deg, ${ c } 50%, transparent 50%),
-        linear-gradient(-45deg, ${ c } 50%, transparent 50%)
-      `;
-      _.backgroundPosition = index % 2
-        ? '0 0, 100% 100%'
-        : '100% 0, 0 100%';
     </x-pattern>
 
     <x-pattern name="stamps">
