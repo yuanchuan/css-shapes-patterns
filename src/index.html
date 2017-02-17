@@ -179,8 +179,9 @@
       _.width = '50%';
       _.height = '192%';
       _.borderRadius = '100% / 28%';
+      _.willChange = 'transform';
       _.transform = `
-        rotate(45deg)
+        rotate(${ setvar('direction', rand(45, -45)) + 'deg' })
       `;
     </x-pattern>
 
@@ -188,14 +189,17 @@
       let c = color(rangeOf(.2, .8, .2));
       _.boxShadow = `
         inset 0 0 0 1px ${ c },
-        inset 2px 2px 4px 0 ${ c }
+        inset ${ rangeOf(4) + 'px'} ${ rangeOf(4) + 'px'} 4px 0 ${ c }
       `;
       _.top = '-50%';
       _.left = '-15%';
       _.width = '90%';
       _.height = '200%';
       _.borderRadius = '100% / 80%';
-      _.transform = `rotate(${ ((index % 2 ) ? 1 : -1) * 45 + 'deg' })`;
+      _.transform = `
+        scale(${ setvar('scale', rangeOf(.9, 1.15, .05)) })
+        rotate(${ ((index % 2 ) ? 1 : -1) * 45 + 'deg' })
+      `;
     </x-pattern>
 
     <x-pattern name="butterfly">
