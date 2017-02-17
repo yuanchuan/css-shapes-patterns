@@ -12,7 +12,7 @@
     <h1><span>CSS Shapes<br/>Patterns</span></h1>
 
     <x-pattern name="origin">
-      _.backgroundColor = color(rangeOf(.7, .9, .1));
+      _.backgroundColor = color();
       _.borderRadius = rand(
         '100% 0 0 0',
         '0 100% 0 0',
@@ -22,7 +22,7 @@
     </x-pattern>
 
     <x-pattern name="triangle" require="clip-path">
-      _.backgroundColor = color(rangeOf(.7, .9, .1));
+      _.backgroundColor = color();
       _.clipPath = _.webkitClipPath = `polygon(${ rand(
         '0 0, 100% 0, 100% 100%',
         '0 0, 100% 0, 0 100%',
@@ -32,7 +32,7 @@
     </x-pattern>
 
     <x-pattern name="diamond" require="clip-path">
-      _.backgroundColor = color(rangeOf(.7, .9, .1));
+      _.backgroundColor = color();
       _.clipPath = _.webkitClipPath = `polygon(${ rand(
         '0 0, 50% 0, 100% 100%, 0% 50%',
         '50% 0, 100% 0, 100% 50%, 0 100%',
