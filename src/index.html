@@ -151,23 +151,6 @@
       `;
     </x-pattern>
 
-    <x-pattern name="knots">
-      let c = color(rangeOf(.2, .8, .2));
-      _.transitionDelay = setvar('delay' + (index % 5), rangeOf(600) + 'ms');
-      _.boxShadow = `
-        inset 0 0 0 1px ${ c },
-        inset 2px 2px 4px 0 ${ c }
-      `;
-      _.left = '25%';
-      _.width = '50%';
-      _.height = '156%';
-      _.borderRadius = '100% / 40%';
-      _.transform = `
-        translateY(${ setvar('offset' + (index % 5), rangeOf(-10, 10)) + 'px' })
-        rotate(${ ((index % 2 ) ? -1 : 1) * setvar('deg', rangeOf(15, 30)) + 'deg' })
-      `;
-    </x-pattern>
-
     <x-pattern name="tubes">
       let c = color(rangeOf(.2, .8, .2));
       _.boxShadow = `
@@ -202,8 +185,25 @@
       `;
     </x-pattern>
 
+    <x-pattern name="knots">
+      let c = _.backgroundColor = color(rangeOf(.2, .8, .2));
+      _.transitionDelay = setvar('delay' + (index % 5), rangeOf(600) + 'ms');
+      _.boxShadow = `
+        inset 0 0 0 1px ${ c },
+        inset 2px 2px 4px 0 ${ c }
+      `;
+      _.left = '25%';
+      _.width = '50%';
+      _.height = '156%';
+      _.borderRadius = '100% / 40%';
+      _.transform = `
+        translateY(${ setvar('offset' + (index % 5), rangeOf(-10, 10)) + 'px' })
+        rotate(${ ((index % 2 ) ? -1 : 1) * setvar('deg', rangeOf(15, 30)) + 'deg' })
+      `;
+    </x-pattern>
+
     <x-pattern name="butterfly">
-      let c = color(rangeOf(.2, .8, .2));
+      let c = _.backgroundColor = color(rangeOf(.2, .8, .2));
       let group = index % 2 ? (index - 1) : index;
 
       _.transitionDelay = setvar('delay' + group, rangeOf(600) + 'ms');

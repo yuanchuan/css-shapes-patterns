@@ -15,7 +15,7 @@
   }
 
   const rangeOf = (function() {
-    const memo = [];
+    const memo = {};
     return function(start = 0, stop, step = 1) {
       let key = [].join.call(arguments, '-');
       let result = memo[key];
