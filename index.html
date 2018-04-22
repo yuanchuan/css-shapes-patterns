@@ -42,37 +42,37 @@
     </x-pattern>
 
     <x-pattern name="circles">
-      _.backgroundColor = color(rangeOf(.2, .9, .2));
+      _.backgroundColor = color(rangeOf(.2, .9, .1));
       _.borderRadius = '50%';
       _.width = _.height = rangeOf(25, 125, 25) +  '%';
       _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
     </x-pattern>
 
     <x-pattern name="leaves">
-      _.backgroundColor = color(rangeOf(.2, .9, .3));
+      _.backgroundColor = color(rangeOf(.2, .9, .1));
       _.borderRadius = rand('100% 0', '0 100%');
       _.width = _.height = rangeOf(25, 125, 25) + '%';
       _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
     </x-pattern>
 
     <x-pattern name="tiles">
-      _.backgroundColor = color(rangeOf(.2, .9, .2));
+      _.backgroundColor = color(rangeOf(.1, .9, .1));
       _.width = _.height = rangeOf(25, 125, 25) + '%';
       _.transform = `scale(${ rangeOf(.6, 1.8, .3) })`;
     </x-pattern>
 
     <x-pattern name="pizza" require="clip-path">
-      _.backgroundColor = color(rangeOf(.2, .9, .2));
+      _.backgroundColor = color(rangeOf(.1, .9, .1));
       _.clipPath = _.webkitClipPath = `polygon(
-        ${ rangeOf(0, 100, 20) + '%'} ${rangeOf(0, 100, 20) + '%'},
-        ${ rangeOf(0, 100, 20) + '%'} ${rangeOf(0, 100, 20) + '%'},
-        ${ rangeOf(0, 100, 20) + '%'} ${rangeOf(0, 100, 20) + '%'}
+        ${ rangeOf(0, 100) + '%'} 0,
+        100% ${rangeOf(0, 100) + '%'},
+        0 ${rangeOf(0, 100) + '%'}
       )`;
-      _.transform = `scale(${ rand(1, 2.5, .3) })`;
+      _.transform = `rotate(${ rangeOf(0, 360) + 'deg'})`;
     </x-pattern>
 
     <x-pattern name="lines">
-      _.backgroundColor = color(rangeOf(.2, .9, .3));
+      _.backgroundColor = color(rangeOf(.1, .9, .1));
       _.height = rangeOf(1, 5) + 'px';
       _.transform = `
         scale(${ rand(2, 2.5, 3, 3.5) })
@@ -81,20 +81,20 @@
     </x-pattern>
 
     <x-pattern name="squares">
-      _.border = `${ rangeOf(2, 10) + 'px' } solid ${ color(rangeOf(.2, .8, .2)) }`;
+      _.border = `${ rangeOf(2, 10) + 'px' } solid ${ color(rangeOf(.1, .9, .1)) }`;
       _.width = _.height = rangeOf(25, 200, 25) + '%';
       _.transform = 'rotate(45deg)';
     </x-pattern>
 
     <x-pattern name="ribbons">
-      _.border = `${ rangeOf(2, 5) + 'px' } solid ${ color(rangeOf(.2, .8, .2)) }`;
+      _.border = `${ rangeOf(2, 5) + 'px' } solid ${ color(rangeOf(.2, .9, .1)) }`;
       _.borderRadius = '50%';
       _.transform = `scale(${ rangeOf(5, 18) })`;
     </x-pattern>
 
     <x-pattern name="curves">
       _.borderRadius = '50%';
-      _.borderTop = `${ rangeOf(1, 10) + 'px' } solid ${ color(rangeOf(.2, .9, .3)) }`;
+      _.borderTop = `${ rangeOf(1, 10) + 'px' } solid ${ color(rangeOf(.5, .9, .1)) }`;
       _.width = _.height = rangeOf(25, 200) + '%';
       _.transform = `
         scale(${ rand(1, 1.5, 1.8, 2) })
@@ -103,25 +103,31 @@
     </x-pattern>
 
     <x-pattern name="clouds">
-      _.border = `0 solid ${ color(rangeOf(.2, .9, .1)) }`;
+      _.border = `0 solid ${ color(rangeOf(.5, .9, .1)) }`;
       _.borderRadius = '100%';
       _.borderTopWidth = _.borderLeftWidth = '.4em';
       _.transform = `skewX(${-1 * rangeOf(30, 40) + 'deg'})`;
     </x-pattern>
 
     <x-pattern class="lollipop">
-      let c = color(rangeOf(.2, .9, .1))
+      let c = color(rangeOf(.5, .9, .1))
       _.borderRadius = '50%';
       _.backgroundColor = '#fafafa';
       _.transition = 'transform .3s ease';
       _.transform = `scale(${ rangeOf(2, 3, .1) })`;
       _.backgroundImage = `
-        repeating-radial-gradient(circle closest-side, ${ c }, ${ c } 2px, #fafafa 2px, #fafafa 6px)
+        repeating-radial-gradient(
+          circle closest-side,
+          ${ c },
+          ${ c } 2px,
+          #fafafa 2px,
+          #fafafa 6px
+        )
       `;
     </x-pattern>
 
     <x-pattern name="stones">
-      let c = color(rangeOf(.2, .9, .1));
+      let c = color(rangeOf(.5, .9, .1));
       _.boxShadow = `
         inset 0 0 0 1px ${ c },
         inset ${ rand(-2, 2) + 'px' } ${ rand(-2, 2) + 'px' } 1px ${ rangeOf(5) + 'px' } ${ c }
@@ -141,18 +147,18 @@
     </x-pattern>
 
     <x-pattern name="planet">
-      _.border = `${ rangeOf(8)+ 'px' } solid ${ color(rand(0, .2, .4, .6)) }`;
+      _.border = `${ rangeOf(8)+ 'px' } solid ${ color(rangeOf(.2, .8, .1)) }`;
       _.width = '50%';
       _.height = '120%';
       _.borderRadius = '50%';
       _.transform = `
-        scaleX(${ rangeOf(5, 8) })
+        scaleX(${ rangeOf(5, 12) })
         rotate(${ rand(45, 60, 90) + 'deg' })
       `;
     </x-pattern>
 
     <x-pattern name="tubes">
-      let c = color(rangeOf(.2, .8, .2));
+      let c = color(rangeOf(.5, .9, .1));
       _.boxShadow = `
         inset 0 0 0 1px ${ c },
         inset 2px 2px 4px 0 ${ c }
@@ -169,7 +175,7 @@
     </x-pattern>
 
     <x-pattern name="math">
-      let c = color(rangeOf(.2, .8, .2));
+      let c = color(rangeOf(.1, .9, .1));
       _.boxShadow = `
         inset 0 0 0 1px ${ c },
         inset ${ rangeOf(4) + 'px'} ${ rangeOf(4) + 'px'} 4px 0 ${ c }
@@ -186,7 +192,7 @@
     </x-pattern>
 
     <x-pattern name="knots">
-      let c = _.backgroundColor = color(rangeOf(.2, .8, .2));
+      let c = _.backgroundColor = color(rangeOf(.2, .9, .1));
       _.transitionDelay = setvar('delay' + (index % 5), rangeOf(600) + 'ms');
       _.boxShadow = `
         inset 0 0 0 1px ${ c },
@@ -203,7 +209,7 @@
     </x-pattern>
 
     <x-pattern name="butterfly">
-      let c = _.backgroundColor = color(rangeOf(.2, .8, .2));
+      let c = _.backgroundColor = color(rangeOf(.2, .9, .1));
       let group = index % 2 ? (index - 1) : index;
 
       _.transitionDelay = setvar('delay' + group, rangeOf(600) + 'ms');
@@ -225,7 +231,7 @@
       if (index % 2) {
         _.marginLeft = '.5em';
         _.borderRadius = '0 20% 80% 20%';
-        _.backgroundColor = color(rangeOf(.2, .9, .2));
+        _.backgroundColor = color(rangeOf(.2, .9, .1));
         _.boxShadow = `-1em 6em 0 0 ${ color(rangeOf(.2, .8, .1)) }`;
         _.transform = `
           rotateY(65deg) rotate(45deg)

@@ -87,8 +87,7 @@ h1, x-pattern {
   max-width: 240px;
   max-height: 240px;
   float: left;
-  margin: .8rem;
-  border-radius: 50%;
+  margin: .4rem;
   overflow: hidden;
   background: #fafafa;
   -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%);
